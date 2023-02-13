@@ -1,0 +1,2535 @@
+{
+  "name": "Bot Bot Bot",
+  "type": "action",
+  "valid": true,
+  "status": "Available",
+  "created": "2023-01-23T15:45:41.964Z",
+  "updated": "2023-02-12T10:44:01.995Z",
+  "language": "en",
+  "skill_id": "1d082fb9-648c-4b97-ac60-0e879fff2e93",
+  "workspace": {
+    "actions": [
+      {
+        "steps": [
+          {
+            "step": "step_157",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Thank you for the information, are you in "
+                          },
+                          {
+                            "skill_variable": "cityy"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Yes",
+                      "value": {
+                        "input": {
+                          "text": "Yes"
+                        }
+                      }
+                    },
+                    {
+                      "label": "No",
+                      "value": {
+                        "input": {
+                          "text": "No"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I'm sorry, I did not catch that, please restate your response."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "sys-yes-no",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_157",
+            "condition": {
+              "exists": {
+                "skill_variable": "cityy"
+              }
+            },
+            "next_step": "step_635"
+          },
+          {
+            "step": "step_635",
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_35633",
+                "parameters": null,
+                "result_variable": "step_635_result_1"
+              }
+            },
+            "variable": "step_635",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_157"
+                },
+                {
+                  "scalar": "yes"
+                }
+              ]
+            },
+            "next_step": "step_353"
+          },
+          {
+            "step": "step_353",
+            "handlers": [],
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_353",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_157"
+                },
+                {
+                  "scalar": "no"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "Ihtiyac bildirim",
+        "action": "action_12690",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_12690_intent_25728"
+        },
+        "variables": [
+          {
+            "variable": "step_001_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "Thank you for the information, are you in {variable}",
+            "variable": "step_157",
+            "data_type": "yes_no"
+          },
+          {
+            "variable": "step_157_result_1",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_294_result_1",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_302_result_1",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_309_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "No response",
+            "variable": "step_353",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_387_result_1",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_402_result_1",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_402_result_2",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_559_result_1",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_588_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "No response",
+            "variable": "step_635",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_635_result_1",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_771_result_1",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_771_result_2",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "fallback",
+        "topic_switch": {
+          "allowed_from": true,
+          "allowed_into": true
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_758",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "How can we best contact you?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "by email",
+                      "value": {
+                        "input": {
+                          "text": "by email"
+                        }
+                      }
+                    },
+                    {
+                      "label": "by phone",
+                      "value": {
+                        "input": {
+                          "text": "by phone"
+                        }
+                      }
+                    },
+                    {
+                      "label": "by SMS",
+                      "value": {
+                        "input": {
+                          "text": "by SMS"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Please select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_18624-2",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_758",
+            "condition": {
+              "exists": {
+                "skill_variable": "cityy"
+              }
+            },
+            "next_step": "step_587"
+          },
+          {
+            "step": "step_587",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Great. What's your **email** **address**?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "Please enter a valid email address."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_19381-2",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_587",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_758"
+                },
+                {
+                  "value": "by email",
+                  "from_entity": "entity_18624-2"
+                }
+              ]
+            },
+            "next_step": "step_770"
+          },
+          {
+            "step": "step_770",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Great. What's your **phone** **number**?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "Please enter a valid phone number."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_9775-2",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_770",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_758"
+                },
+                {
+                  "value": "by phone",
+                  "from_entity": "entity_18624-2"
+                }
+              ]
+            },
+            "next_step": "step_123"
+          },
+          {
+            "step": "step_123",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Great. What's your **phone** **number**?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "Please enter a valid phone number."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_25231",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_123",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_758"
+                },
+                {
+                  "value": "by SMS",
+                  "from_entity": "entity_18624-2"
+                }
+              ]
+            },
+            "next_step": "step_116"
+          },
+          {
+            "step": "step_116",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Thank you!"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_9367",
+                "parameters": null,
+                "result_variable": "step_116_result_1"
+              }
+            },
+            "variable": "step_116",
+            "condition": {
+              "or": [
+                {
+                  "exists": {
+                    "variable": "step_123"
+                  }
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_587"
+                    },
+                    {
+                      "value": "Email",
+                      "from_entity": "entity_19381-2"
+                    }
+                  ]
+                },
+                {
+                  "eq": [
+                    {
+                      "variable": "step_770"
+                    },
+                    {
+                      "value": "Phone number",
+                      "from_entity": "entity_9775-2"
+                    }
+                  ]
+                }
+              ]
+            }
+          }
+        ],
+        "title": "Location and Help info",
+        "action": "action_35633",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_35633_intent_29758"
+        },
+        "variables": [
+          {
+            "title": "Thank you!",
+            "variable": "step_116",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_116_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "Great. What's your **phone** **number**?",
+            "variable": "step_123",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_157_result_1",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_269_result_1",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_294_result_1",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_402_result_1",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_559_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "Great. What's your **email** **address**?",
+            "variable": "step_587",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_635_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "How can we best contact you?",
+            "variable": "step_758",
+            "data_type": "any"
+          },
+          {
+            "title": "Great. What's your phone number?",
+            "variable": "step_770",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_771_result_1",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_9367",
+        "topic_switch": {
+          "allowed_from": false,
+          "allowed_into": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_294",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "You're welcome! Let me know if I can help with anything else."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_294"
+          }
+        ],
+        "title": "Thank you!",
+        "action": "action_36338",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_36338_intent_10557"
+        },
+        "variables": [
+          {
+            "title": "You're welcome! Let me know if I can help with anything else.",
+            "variable": "step_294",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_35633",
+        "topic_switch": {
+          "allowed_from": false,
+          "allowed_into": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_465",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "No problem! Enjoy exploring our tool, and feel free to come back with any questions you might have."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_465"
+          }
+        ],
+        "title": "Just looking!",
+        "action": "action_47712",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_47712_intent_34594"
+        },
+        "variables": [
+          {
+            "title": "No problem! Enjoy exploring our tool, and feel free to come back",
+            "variable": "step_465",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_36338",
+        "topic_switch": {
+          "allowed_from": false,
+          "allowed_into": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_213",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "I'd be happy to back to you.\n\n<br />\n\n\n\nBefore we get started, I need to collect some basic information. First up, what's your **first name**?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [],
+            "question": {
+              "free_text": true,
+              "only_populate_when_prompted": true
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_213",
+            "next_step": "step_536"
+          },
+          {
+            "step": "step_536",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Thanks! What's your **last name**?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [],
+            "question": {
+              "free_text": true,
+              "only_populate_when_prompted": true
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_536",
+            "next_step": "step_636"
+          },
+          {
+            "step": "step_636",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Thanks "
+                          },
+                          {
+                            "variable": "step_213"
+                          },
+                          {
+                            "scalar": "!\n\n<br />\n\n\n\nNext, can you send us your location"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Location",
+                      "value": {
+                        "input": {
+                          "text": "Location"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_29499",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_636",
+            "next_step": "step_648"
+          },
+          {
+            "step": "step_648",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Thanks for the information, "
+                          },
+                          {
+                            "variable": "step_213"
+                          },
+                          {
+                            "scalar": "! We will be back to you soon!"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "context": {
+              "variables": []
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_648",
+            "condition": {
+              "exists": {
+                "variable": "step_636"
+              }
+            }
+          }
+        ],
+        "title": "Name and Location",
+        "action": "action_9367",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "action_9367_intent_41619"
+        },
+        "variables": [
+          {
+            "variable": "step_116_result_1",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_157_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "I'd be happy to back to you. <br /> Before we get started, I nee",
+            "variable": "step_213",
+            "data_type": "any"
+          },
+          {
+            "title": "Thanks! What's your **last name**?",
+            "variable": "step_536",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_635_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "Thanks {variable}! <br /> Next, can you send us your location",
+            "variable": "step_636",
+            "data_type": "any"
+          },
+          {
+            "title": "Thanks for the information, {variable}! We will be back to you s",
+            "variable": "step_648",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_12690",
+        "topic_switch": {
+          "allowed_from": false,
+          "allowed_into": false
+        },
+        "disambiguation_opt_out": false
+      },
+      {
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. Please rephrase your question."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_001",
+            "condition": {
+              "lte": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": ""
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action_and_end",
+              "invoke_action": {
+                "action": "fallback",
+                "parameters": null,
+                "result_variable": "step_002_result_1"
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "gt": [
+                {
+                  "system_variable": "no_action_matches_count"
+                },
+                {
+                  "scalar": 3
+                }
+              ]
+            }
+          }
+        ],
+        "title": "No action matches",
+        "action": "anything_else",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "expression": "anything_else"
+        },
+        "variables": [
+          {
+            "title": "I am afraid I do not understand what you are asking, please re-p",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_002_result_1",
+            "data_type": "any"
+          }
+        ],
+        "disambiguation_opt_out": true
+      },
+      {
+        "steps": [
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I'm afraid I don't understand. I can connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_001",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Step validation failed"
+                }
+              ]
+            },
+            "next_step": "step_002"
+          },
+          {
+            "step": "step_002",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "Sorry I couldn't assist you. I will connect you to an agent right away."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_002",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "Agent requested"
+                }
+              ]
+            },
+            "next_step": "step_003"
+          },
+          {
+            "step": "step_003",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text": "I am afraid I do not understand what you are asking, let me connect you to an agent."
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "connect_to_agent",
+              "response": {
+                "transfer_info": {
+                  "target": {}
+                },
+                "agent_available": {
+                  "message": "Let's send you to an available agent."
+                },
+                "agent_unavailable": {
+                  "message": "There are no agents available at this time. When one becomes available, we'll connect you."
+                },
+                "message_to_human_agent": ""
+              }
+            },
+            "variable": "step_003",
+            "condition": {
+              "eq": [
+                {
+                  "system_variable": "fallback_reason"
+                },
+                {
+                  "scalar": "No action matches"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "Fallback",
+        "action": "fallback",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "intent": "fallback_connect_to_agent"
+        },
+        "variables": [
+          {
+            "title": "I'm afraid I don't understand. I can connect you to an agent.",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "title": "Sorry I couldn't assist you. I will connect you to an agent righ",
+            "variable": "step_002",
+            "data_type": "any"
+          },
+          {
+            "title": "I am afraid I do not understand what you are asking, let me conn",
+            "variable": "step_003",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "anything_else",
+        "disambiguation_opt_out": true
+      },
+      {
+        "steps": [
+          {
+            "step": "step_728",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "Two massive earthquakes just hours apart on Feb 6 that devastated cities and towns across a huge swathe of southern Türkiye / Turkey and northwest Syria are rapidly becoming one of the worst disasters this century.\n\nWe're here to help you."
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "How can we help you?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Help Request",
+                      "value": {
+                        "input": {
+                          "text": "Help Request"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Donation",
+                      "value": {
+                        "input": {
+                          "text": "Donation"
+                        }
+                      }
+                    },
+                    {
+                      "label": "General Info",
+                      "value": {
+                        "input": {
+                          "text": "General Info"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_26346",
+              "max_tries": 3,
+              "response_collection_behavior": "optionally_ask"
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_728",
+            "next_step": "step_001"
+          },
+          {
+            "step": "step_001",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "What subject do you need?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Tent",
+                      "value": {
+                        "input": {
+                          "text": "Tent"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Winter clothes for children",
+                      "value": {
+                        "input": {
+                          "text": "Winter clothes for children"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Winter clothes for adults",
+                      "value": {
+                        "input": {
+                          "text": "Winter clothes for adults"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Winter boots and shoes for children and adults",
+                      "value": {
+                        "input": {
+                          "text": "Winter boots and shoes for children and adults"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Raincoats for adults and children",
+                      "value": {
+                        "input": {
+                          "text": "Raincoats for adults and children"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Underwear for adults and children",
+                      "value": {
+                        "input": {
+                          "text": "Underwear for adults and children"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Hygiene material (wet wipes, sanitary pads…)",
+                      "value": {
+                        "input": {
+                          "text": "Hygiene material (wet wipes, sanitary pads…)"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Diapers and sanitary pads for children",
+                      "value": {
+                        "input": {
+                          "text": "Diapers and sanitary pads for children"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Flashlight",
+                      "value": {
+                        "input": {
+                          "text": "Flashlight"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Power bank ",
+                      "value": {
+                        "input": {
+                          "text": "Power bank "
+                        }
+                      }
+                    },
+                    {
+                      "label": "Sleeping bag",
+                      "value": {
+                        "input": {
+                          "text": "Sleeping bag"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Other",
+                      "value": {
+                        "input": {
+                          "text": "Other"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_40558",
+              "max_tries": 3
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_001",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_728"
+                },
+                {
+                  "value": "Help Request",
+                  "from_entity": "entity_26346"
+                }
+              ]
+            },
+            "next_step": "step_771"
+          },
+          {
+            "step": "step_771",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "In Which city you are currently in?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I'm sorry, I did not catch that, please restate your response."
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_19345",
+              "max_tries": 3,
+              "response_collection_behavior": "optionally_ask"
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_771",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_728"
+                },
+                {
+                  "value": "Help Request",
+                  "from_entity": "entity_26346"
+                }
+              ]
+            },
+            "next_step": "step_632"
+          },
+          {
+            "step": "step_632",
+            "context": {
+              "variables": [
+                {
+                  "value": {
+                    "variable": "step_771"
+                  },
+                  "skill_variable": "cityy"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "invoke_another_action",
+              "invoke_action": {
+                "action": "action_12690",
+                "parameters": null,
+                "result_variable": "step_632_result_1"
+              }
+            },
+            "variable": "step_632",
+            "condition": {
+              "exists": {
+                "variable": "step_771"
+              }
+            },
+            "next_step": "step_521"
+          },
+          {
+            "step": "step_521",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "What would you like to help with?"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                },
+                {
+                  "options": [
+                    {
+                      "label": "Search & Rescue",
+                      "value": {
+                        "input": {
+                          "text": "Search & Rescue"
+                        }
+                      }
+                    },
+                    {
+                      "label": "Humanitarian Assistance",
+                      "value": {
+                        "input": {
+                          "text": "Humanitarian Assistance"
+                        }
+                      }
+                    }
+                  ],
+                  "response_type": "option",
+                  "repeat_on_reprompt": true
+                }
+              ]
+            },
+            "handlers": [
+              {
+                "type": "not_found",
+                "title": "validation_not_found_handler",
+                "output": {
+                  "generic": [
+                    {
+                      "values": [
+                        {
+                          "text": "I didn't catch that. Select a valid option:"
+                        }
+                      ],
+                      "response_type": "text"
+                    }
+                  ]
+                },
+                "handler": "validation_not_found_handler",
+                "resolver": {
+                  "type": "prompt_again"
+                },
+                "next_handler": "validation_not_found_max_tries_handler"
+              },
+              {
+                "type": "not_found_max_tries",
+                "title": "validation_not_found_max_tries_handler",
+                "handler": "validation_not_found_max_tries_handler",
+                "resolver": {
+                  "type": "fallback"
+                }
+              }
+            ],
+            "question": {
+              "entity": "entity_31216",
+              "max_tries": 3,
+              "response_collection_behavior": "optionally_ask"
+            },
+            "resolver": {
+              "type": "continue"
+            },
+            "variable": "step_521",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_728"
+                },
+                {
+                  "value": "Donation",
+                  "from_entity": "entity_26346"
+                }
+              ]
+            },
+            "next_step": "step_946"
+          },
+          {
+            "step": "step_946",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "You can click to donate in [AKUT Search and Rescue Association](https://www.akut.org.tr/en/donation) donation website\n\n<br />\n\n\n\n[AKUT Search And Rescue Association](https://www.linkedin.com/company/akutdernegi/) is a voluntary, non-governmental organization involved in searching, assisting and rescuing the victims affected by the earthquake.\n\n<br />\n\n\n\nThank you so much for your support!"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_946",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_521"
+                },
+                {
+                  "value": "Search & Rescue",
+                  "from_entity": "entity_31216"
+                }
+              ]
+            },
+            "next_step": "step_294"
+          },
+          {
+            "step": "step_294",
+            "output": {
+              "generic": [
+                {
+                  "values": [
+                    {
+                      "text_expression": {
+                        "concat": [
+                          {
+                            "scalar": "You can click to donate in [Ahbap donation website](https://ahbap.org/disasters-turkey)\n\n<br />\n\n\n\n[Ahbap](https://www.linkedin.com/company/ahbap/) is a grassroots NGO that is trustworthy and effective. They have donation accounts for USD, EUR, and GBP.\n\nThank you so much for your support!"
+                          }
+                        ]
+                      }
+                    }
+                  ],
+                  "response_type": "text",
+                  "selection_policy": "sequential"
+                }
+              ]
+            },
+            "handlers": [],
+            "resolver": {
+              "type": "end_action"
+            },
+            "variable": "step_294",
+            "condition": {
+              "eq": [
+                {
+                  "variable": "step_521"
+                },
+                {
+                  "value": "Humanitarian Assistance",
+                  "from_entity": "entity_31216"
+                }
+              ]
+            }
+          }
+        ],
+        "title": "Greet customer",
+        "action": "welcome",
+        "boosts": [],
+        "handlers": [],
+        "condition": {
+          "expression": "welcome"
+        },
+        "variables": [
+          {
+            "title": "What subject do you need?",
+            "variable": "step_001",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_001_result_1",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_116_result_1",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_157_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "You can click to donate in [Ahbap donation website](https://ahba",
+            "variable": "step_294",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_309_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "What would you like to help with?",
+            "variable": "step_521",
+            "data_type": "any"
+          },
+          {
+            "title": "No response",
+            "variable": "step_632",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_632_result_1",
+            "data_type": "any"
+          },
+          {
+            "variable": "step_635_result_1",
+            "data_type": "any"
+          },
+          {
+            "title": "Two massive earthquakes just hours apart on Feb 6 that devastate",
+            "variable": "step_728",
+            "data_type": "any"
+          },
+          {
+            "title": "In Which city you are currently in?",
+            "variable": "step_771",
+            "data_type": "any"
+          },
+          {
+            "title": "You can click to donate in [AKUT Search and Rescue Association](",
+            "variable": "step_946",
+            "data_type": "any"
+          }
+        ],
+        "next_action": "action_47712",
+        "disambiguation_opt_out": true
+      }
+    ],
+    "intents": [
+      {
+        "intent": "action_12690_intent_25728",
+        "examples": [
+          {
+            "text": "AFAD"
+          },
+          {
+            "text": "yardim"
+          }
+        ]
+      },
+      {
+        "intent": "action_35633_intent_29758",
+        "examples": []
+      },
+      {
+        "intent": "action_36338_intent_10557",
+        "examples": [
+          {
+            "text": "Appreciate it"
+          },
+          {
+            "text": "Ok thanks"
+          },
+          {
+            "text": "Thanks"
+          },
+          {
+            "text": "Thanks a ton"
+          },
+          {
+            "text": "Thank you"
+          },
+          {
+            "text": "Thank you very much"
+          }
+        ]
+      },
+      {
+        "intent": "action_47712_intent_34594",
+        "examples": [
+          {
+            "text": "Browsing first"
+          },
+          {
+            "text": "I'm just looking for now"
+          },
+          {
+            "text": "I'm just poking around"
+          },
+          {
+            "text": "Just having a look around"
+          },
+          {
+            "text": "Just Looking"
+          },
+          {
+            "text": "Looking through my options for now"
+          }
+        ]
+      },
+      {
+        "intent": "action_9367_intent_41619",
+        "examples": [
+          {
+            "text": "Help me"
+          }
+        ]
+      },
+      {
+        "intent": "fallback_connect_to_agent",
+        "examples": [
+          {
+            "text": "Agent help"
+          },
+          {
+            "text": "Call agent"
+          },
+          {
+            "text": "Can I connect to an agent?"
+          },
+          {
+            "text": "I would like to speak to a human"
+          },
+          {
+            "text": "I would like to speak to someone"
+          }
+        ],
+        "description": "Please transfer me to an agent"
+      }
+    ],
+    "entities": [
+      {
+        "entity": "entity_11531",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Email",
+            "patterns": [
+              "\\b(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])\\b"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_15623",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "No, please continue creating a support ticket for me.",
+            "synonyms": [
+              "nah",
+              "Nope"
+            ]
+          },
+          {
+            "type": "synonyms",
+            "value": "Yes, I'm all set.",
+            "synonyms": [
+              "ya",
+              "yeah",
+              "Yes"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_17250",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Regular_expression",
+            "patterns": [
+              "\"^(?:.*[a-z])(?:.*[A-Z])(?:.*\\d)(?:.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$\""
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_18609",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Email",
+            "patterns": [
+              "\\b(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])\\b"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_18624",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "by email",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "by phone",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_18624-2",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "by email",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "by phone",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "by SMS",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_19345",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Regular_expression",
+            "patterns": [
+              "(?i)((gaz[ıiİI]antep)|(malatya)|(batman)|(b[ıiIİ]ng[oöOÖ]l)|(elaz[Iİıi][gğ])|(kilis)|(diyarbak[ıiIİ]r)|(mardin)|(siirt)|([SsŞş][ıiIİ]rnak)|(van)|(mu[sşSŞ])|(bitlis)|(hakkari)|(adana)|(osmaniye)|(hatay)|(kahramanmara[sşSŞ])|(mara[SŞsş])|(antep))"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_19381",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Email",
+            "patterns": [
+              "\\b(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])\\b"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_19381-2",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Email",
+            "patterns": [
+              "\\b(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])\\b"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_22519",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Email",
+            "patterns": [
+              "\\b(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])\\b"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_24203",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Regular_expression",
+            "patterns": [
+              "\"^(?:.*[a-z])(?:.*[A-Z])(?:.*\\d)(?:.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$\""
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_25231",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Phone number",
+            "patterns": [
+              "\\b(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\b"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_25899",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Email",
+            "patterns": [
+              "\\b(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])\\b"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_26346",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Donation",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "General Info",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Help Request",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_26611",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Email",
+            "patterns": [
+              "\\b(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])\\b"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_29499",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Location",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_31216",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Humanitarian Assistance",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Search & Rescue",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_32685",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Email",
+            "patterns": [
+              "\\b(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])\\b"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_38803",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Regular_expression",
+            "patterns": [
+              "\"^(?:.*[a-z])(?:.*[A-Z])(?:.*\\d)(?:.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$\""
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_40558",
+        "values": [
+          {
+            "type": "synonyms",
+            "value": "Diapers and sanitary pads for children",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Flashlight",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Hygiene material (wet wipes, sanitary pads…)",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Other",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Power bank ",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Raincoats for adults and children",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Sleeping bag",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Tent",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Underwear for adults and children",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Winter boots and shoes for children and adults",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Winter clothes for adults",
+            "synonyms": []
+          },
+          {
+            "type": "synonyms",
+            "value": "Winter clothes for children",
+            "synonyms": []
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_41489",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Regular_expression",
+            "patterns": [
+              "\"^(?:.*[a-z])(?:.*[A-Z])(?:.*\\d)(?:.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$\""
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_46818",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Email",
+            "patterns": [
+              "\\b(?:[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[A-Za-z0-9!#$%&'*+/=?^_`{|}~-]+)*|\"(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21\\x23-\\x5b\\x5d-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])*\")@(?:(?:[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?\\.)+[A-Za-z0-9](?:[A-Za-z0-9-]*[A-Za-z0-9])?|\\[(?:(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9]))\\.){3}(?:(2(5[0-5]|[0-4][0-9])|1[0-9][0-9]|[1-9]?[0-9])|[A-Za-z0-9-]*[A-Za-z0-9]:(?:[\\x01-\\x08\\x0b\\x0c\\x0e-\\x1f\\x21-\\x5a\\x53-\\x7f]|\\\\[\\x01-\\x09\\x0b\\x0c\\x0e-\\x7f])+)\\])\\b"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_47075",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Regular_expression",
+            "patterns": [
+              "\"^(?:.*[a-z])(?:.*[A-Z])(?:.*\\d)(?:.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$\""
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_9057",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Regular_expression",
+            "patterns": [
+              "\"^(?:.*[a-z])(?:.*[A-Z])(?:.*\\d)(?:.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$\""
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_9775",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Phone number",
+            "patterns": [
+              "\\b(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\b"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "entity_9775-2",
+        "values": [
+          {
+            "type": "patterns",
+            "value": "Phone number",
+            "patterns": [
+              "\\b(?:\\+?(\\d{1,3}))?[-. (]*(\\d{3})[-. )]*(\\d{3})[-. ]*(\\d{4})(?: *x(\\d+))?\\b"
+            ]
+          }
+        ],
+        "fuzzy_match": true
+      },
+      {
+        "entity": "sys-currency",
+        "values": []
+      },
+      {
+        "entity": "sys-date",
+        "values": []
+      },
+      {
+        "entity": "sys-number",
+        "values": []
+      },
+      {
+        "entity": "sys-percentage",
+        "values": []
+      },
+      {
+        "entity": "sys-time",
+        "values": []
+      },
+      {
+        "entity": "sys-yes-no",
+        "values": []
+      }
+    ],
+    "metadata": {
+      "api_version": {
+        "major_version": "v2",
+        "minor_version": "2018-11-08"
+      }
+    },
+    "variables": [
+      {
+        "title": "cityy",
+        "variable": "cityy",
+        "data_type": "string",
+        "description": ""
+      },
+      {
+        "title": "location",
+        "variable": "location",
+        "data_type": "any",
+        "description": "",
+        "initial_value": {
+          "expression": "${location}"
+        }
+      }
+    ],
+    "data_types": [],
+    "counterexamples": [],
+    "system_settings": {
+      "off_topic": {
+        "enabled": true
+      },
+      "topic_switch": {
+        "enabled": true,
+        "messages": {
+          "confirm_return": {
+            "text": "Return to previous topic?"
+          },
+          "confirm_switch": {
+            "text": "Switch from the current topic?"
+          }
+        },
+        "question_steps_threshold": 2
+      },
+      "disambiguation": {
+        "prompt": "Did you mean:",
+        "enabled": true,
+        "randomize": true,
+        "max_suggestions": 5,
+        "suggestion_text_policy": "title",
+        "none_of_the_above_prompt": "None of the above"
+      },
+      "intent_classification": {
+        "training_backend_version": "v2"
+      },
+      "spelling_auto_correct": true
+    },
+    "learning_opt_out": false
+  },
+  "description": "created for assistant d859d7df-6bc8-436c-bca6-8bb5cfe40d92",
+  "assistant_id": "d859d7df-6bc8-436c-bca6-8bb5cfe40d92",
+  "workspace_id": "1d082fb9-648c-4b97-ac60-0e879fff2e93",
+  "dialog_settings": {},
+  "next_snapshot_version": "1"
+}
